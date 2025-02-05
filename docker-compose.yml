@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  minio:
+    image: minio/minio
+    container_name: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password
+    command: server /data --console-address ":9001"
+
+  chromadb:
+    image: ghcr.io/chroma-core/chroma:latest
+    container_name: chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - chromadb_data:/chroma/chroma
+
+  ollama:
+    build:
+      context: .
+      dockerfile: Dockerfile.ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  langchain-api:
+    build: .
+    container_name: langchain-api
+    ports:
+      - "5010:5010"
+    depends_on:
+      - ollama
+      - chromadb
+      - minio
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - CHROMADB_HOST=chromadb
+      - CHROMADB_PORT=8000
+    command: python -m uvicorn src.main:app --host 0.0.0.0 --port 5010 --reload
+    volumes:
+      - ./src:/app/src
+
+  streamlit:
+    build: .
+    container_name: streamlit-ui
+    ports:
+      - "8501:8501"
+    depends_on:
+      - langchain-api
+    environment:
+      - API_URL=http://langchain-api:5010
+    command: streamlit run src/ui/app.py --server.port 8501 --server.address 0.0.0.0
+    volumes:
+      - ./src:/app/src
+
+volumes:
+  chromadb_data:
+  ollama_data:

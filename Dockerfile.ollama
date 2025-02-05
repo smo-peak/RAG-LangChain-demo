@@ -1,0 +1,12 @@
+FROM ollama/ollama
+
+# Installer bash
+USER root
+RUN apt-get update && apt-get install -y bash curl
+
+# Copier le script de démarrage
+COPY start-ollama.sh /start-ollama.sh
+RUN chmod +x /start-ollama.sh
+
+# Point d'entrée
+ENTRYPOINT ["/start-ollama.sh"]

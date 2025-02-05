@@ -1,0 +1,6 @@
+# Ignore les fichiers sensibles et temporaires
+.env
+__pycache__/
+chroma_db/
+*.log
+*.sqlite
