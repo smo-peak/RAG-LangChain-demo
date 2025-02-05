@@ -1,7 +1,7 @@
 # LangChain Demo ESN 🚀
 
 ## 📌 Objectif du Projet
-Ce projet est un démonstrateur utilisant **LangChain** et **Mistral 7B via Ollama** pour assister les consultants ESN dans l’analyse de documents et la modernisation des systèmes d’information.
+Ce projet est un démonstrateur utilisant **LangChain** et **Mistral 7B via Ollama** pour assister l’analyse de documents.
 
 ## 📂 Architecture
 - **Analyse de documents** : Extraction des insights et KPIs
@@ -110,16 +110,7 @@ docker-compose down
 ## 📜 Licence
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
-## 📞 Support
-Pour toute question ou problème, veuillez ouvrir une issue sur le [dépôt GitHub](https://github.com/votre-repo/langchain-demo-esn/issues).
-
-## 📈 Contributions
-Les contributions sont les bienvenues ! Veuillez consulter le fichier [CONTRIBUTING.md](CONTRIBUTING.md) pour plus d'informations.
-
-## 📚 Documentation
-Pour plus de détails sur l'utilisation de LangChain et Ollama, veuillez consulter la [documentation officielle](https://docs.langchain.com/).
-
 ## 📝 Auteurs
-- **Stéphane MOREL** - *Initial work* - [Votre Profil GitHub](https://github.com/votre-profil)
+- **Stéphane MOREL** - *Initial work* - [smo-peak](https://github.com/smo-peak)
 
-Merci d'utiliser LangChain Demo ESN ! 🚀
+Merci d'utiliser cette Demo  ! 🚀
