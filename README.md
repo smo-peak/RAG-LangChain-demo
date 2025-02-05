@@ -1,12 +1,20 @@
-# LangChain Demo ESN 🚀
+# LangChain Demo with Mistral AI 🚀
 
 ## 📌 Objectif du Projet
 Ce projet est un démonstrateur utilisant **LangChain** et **Mistral 7B via Ollama** pour assister l’analyse de documents.
 
 ## 📂 Architecture
-- **Analyse de documents** : Extraction des insights et KPIs
-- **Comparaison stratégique** : Alignement avec les objectifs business
-- **Génération automatique de recommandations** : ROI, Impact CO₂, Roadmap
+L'architecture de ce projet est conçue pour fournir une analyse approfondie des documents en utilisant des techniques avancées de traitement du langage naturel (NLP) et de machine learning. Voici les principaux composants :
+
+- **Analyse de documents** : Extraction des insights et KPIs à partir des documents fournis.
+- **Comparaison stratégique** : Alignement des informations extraites avec les objectifs business.
+- **Génération automatique de recommandations** : Propositions de ROI, Impact CO₂, et Roadmap basées sur les analyses.
+
+### Base de Données Vectorielle
+Nous utilisons une base de données vectorielle pour stocker et rechercher efficacement les représentations vectorielles des documents. Chaque document est transformé en un vecteur à l'aide de modèles NLP, ce qui permet des recherches sémantiques rapides et précises.
+
+### Découpage en Chunks
+Pour gérer les documents volumineux, nous les découpons en morceaux plus petits appelés "chunks". Chaque chunk est ensuite analysé individuellement, ce qui permet une meilleure gestion de la mémoire et une analyse plus fine des sections spécifiques du document.
 
 ## 🛠️ Installation
 
@@ -19,7 +27,7 @@ Ce projet est un démonstrateur utilisant **LangChain** et **Mistral 7B via Olla
 
 1. **Clonez le repo :**
    ```bash
-   git clone https://github.com/votre-repo/langchain-demo-esn.git
+   git clone https://github.com/smo-peak/RAG-LangChain-demo.git
    cd langchain-demo-esn
    ```
 
