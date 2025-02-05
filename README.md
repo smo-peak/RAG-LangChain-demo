@@ -1,43 +1,43 @@
 # LangChain Demo with Mistral AI 🚀
 
-## 📌 Objectif du Projet
-Ce projet est un démonstrateur utilisant **LangChain** et **Mistral 7B via Ollama** pour assister l’analyse de documents.
+## 📌 Project Objective
+This project is a demonstrator using **LangChain** and **Mistral 7B via Ollama** to assist in document analysis.
 
 ## 📂 Architecture
-L'architecture de ce projet est conçue pour fournir une analyse approfondie des documents en utilisant des techniques avancées de traitement du langage naturel (NLP) et de machine learning. Voici les principaux composants :
+The architecture of this project is designed to provide in-depth document analysis using advanced natural language processing (NLP) and machine learning techniques. Here are the main components:
 
-- **Analyse de documents** : Extraction des insights et KPIs à partir des documents fournis.
-- **Comparaison stratégique** : Alignement des informations extraites avec les objectifs business.
-- **Génération automatique de recommandations** : Propositions de ROI, Impact CO₂, et Roadmap basées sur les analyses.
+- **Document Analysis**: Extraction of insights and KPIs from the provided documents.
+- **Strategic Comparison**: Alignment of extracted information with business objectives.
+- **Automatic Recommendation Generation**: Proposals for ROI, CO₂ Impact, and Roadmap based on the analyses.
 
-### Base de Données Vectorielle
-Nous utilisons une base de données vectorielle pour stocker et rechercher efficacement les représentations vectorielles des documents. Chaque document est transformé en un vecteur à l'aide de modèles NLP, ce qui permet des recherches sémantiques rapides et précises.
+### Vector Database
+We use a vector database to efficiently store and search the vector representations of documents. Each document is transformed into a vector using NLP models, enabling fast and accurate semantic searches.
 
-### Découpage en Chunks
-Pour gérer les documents volumineux, nous les découpons en morceaux plus petits appelés "chunks". Chaque chunk est ensuite analysé individuellement, ce qui permet une meilleure gestion de la mémoire et une analyse plus fine des sections spécifiques du document.
+### Chunking
+To handle large documents, we split them into smaller pieces called "chunks". Each chunk is then analyzed individually, allowing for better memory management and more detailed analysis of specific sections of the document.
 
 ## 🛠️ Installation
 
-### Prérequis
+### Prerequisites
 - **Python 3.10**
-- **Docker** et **Docker Compose**
+- **Docker** and **Docker Compose**
 - **Git**
 
-### Étapes d'installation
+### Installation Steps
 
-1. **Clonez le repo :**
+1. **Clone the repo:**
    ```bash
    git clone https://github.com/smo-peak/RAG-LangChain-demo.git
    cd langchain-demo-esn
    ```
 
-2. **Installez les dépendances Python :**
+2. **Install Python dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Configurez les variables d'environnement :**
-   Créez un fichier `.env` à la racine du projet avec le contenu suivant :
+3. **Configure environment variables:**
+   Create a `.env` file at the root of the project with the following content:
    ```env
    MINIO_ACCESS_KEY=admin
    MINIO_SECRET_KEY=password
@@ -47,78 +47,78 @@ Pour gérer les documents volumineux, nous les découpons en morceaux plus petit
    OLLAMA_MEMORY_LIMIT=10GB
    ```
 
-4. **Lancez les services Docker :**
+4. **Start Docker services:**
    ```bash
    docker-compose up -d
    ```
 
-5. **Initialisez le projet :**
+5. **Initialize the project:**
    ```bash
    bash setup.sh
    ```
 
-6. **Lancez le projet :**
+6. **Run the project:**
    ```bash
    python main.py
    ```
 
-## 🚀 Utilisation
+## 🚀 Usage
 
 ### API
-L'API est accessible à l'adresse `http://localhost:5010`. Voici quelques endpoints utiles :
+The API is accessible at `http://localhost:5010`. Here are some useful endpoints:
 
-- **Ajouter un document :**
+- **Add a document:**
   ```http
   POST /add_document/
   {
     "doc_id": "unique_document_id",
-    "content": "Contenu du document",
+    "content": "Document content",
     "metadata": {
-      "author": "Auteur",
-      "category": "Catégorie",
+      "author": "Author",
+      "category": "Category",
       "source": "Source"
     }
   }
   ```
 
-- **Rechercher des documents :**
+- **Search documents:**
   ```http
   POST /search_documents/
   {
-    "query": "Votre requête",
+    "query": "Your query",
     "n_results": 3
   }
   ```
 
-- **Vérifier le statut de traitement d'un document :**
+- **Check document processing status:**
   ```http
   GET /status/{doc_id}
   ```
 
-- **Récupérer les versions d'un document :**
+- **Retrieve document versions:**
   ```http
   GET /document_versions/{doc_id}
   ```
 
-### Interface Utilisateur
-L'interface utilisateur est accessible à l'adresse `http://localhost:8501`.
+### User Interface
+The user interface is accessible at `http://localhost:8501`.
 
 ## 🐳 Docker
 
-### Construire et lancer les conteneurs
+### Build and start containers
 ```bash
 docker-compose up --build
 ```
 
-### Arrêter les conteneurs
+### Stop containers
 ```bash
 docker-compose down
 ```
 
-## 📜 Licence
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+## 📜 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 📝 Auteurs
+## 📝 Authors
 - **Stéphane MOREL** - *Initial work* - [smo-peak](https://github.com/smo-peak)
 
-Merci d'utiliser cette Demo  ! 🚀
+Thank you for using this Demo! 🚀
